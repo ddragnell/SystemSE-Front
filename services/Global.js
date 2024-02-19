@@ -1,3 +1,3 @@
 export const Global = {
-  APIURL: 'https://systemse-backend.onrender.com/api'
+  APIURL: 'https://systemse-back-dev-jzfc.2.us-1.fl0.io/api'
 }
