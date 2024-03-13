@@ -17,7 +17,7 @@
           Varianza muestral
         </div>
         <v-text-field type="number" min="0" v-model="desviacion" density="compact"
-          placeholder="Valor de la desviación muestral" prepend-inner-icon="mdi-chart-scatter-plot" variant="underlined"
+          placeholder="Valor de la varianza muestral" prepend-inner-icon="mdi-chart-scatter-plot" variant="underlined"
           :rules="[rules, numeroRules].flat()"></v-text-field>
       </div>
 
@@ -27,12 +27,12 @@
       <v-text-field type="number" min="0" step="1" v-model="muestra" density="compact" placeholder="Tamaño de la muestra"
         prepend-inner-icon="mdi-abacus" variant="underlined" :rules="[rules, numeroRules].flat()"></v-text-field>
 
-      <v-btn block class="mb-2" style="color: azure; variant: outline; background-color: #765d39" color="#765D39"
+      <v-btn block class="mb-2" style="color: azure; visibility: outline; background-color: #765d39" color="#765D39"
         size="large" @click="calcular">
         Calcular
       </v-btn>
 
-      <v-btn block class="mb-6" style="color: azure; variant: outline; background-color: #5D6D7E" color="#5D6D7E"
+      <v-btn block class="mb-6" style="color: azure; visibility: outline; background-color: #5D6D7E" color="#5D6D7E"
         size="large" @click="limpiar">
         Limpiar
       </v-btn>
@@ -73,7 +73,7 @@ const calcular = async () => {
     if (!utilsService.isNumber(desviacion.value) || !utilsService.greaterThan0(desviacion.value)) {
       alertService.warning(
         "Advertencia",
-        "La desviación muestral debe ser un número mayor a 0."
+        "La varianza muestral debe ser un número mayor a 0."
       );
     } else if (!utilsService.isInteger(muestra.value) || !utilsService.greaterThan0(muestra.value)) {
       alertService.warning(
