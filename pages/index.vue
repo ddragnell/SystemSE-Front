@@ -45,10 +45,11 @@
 </template>
 
 <script setup>
-import { loginService } from '~/services/loginService';
+import { loginService } from '../services/loginService';
 
 onBeforeMount(() => {
-  inicioService();
-}),
+  loginService.inicioService();
+});
+
 
 </script>
