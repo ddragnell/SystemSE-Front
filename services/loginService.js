@@ -1,6 +1,5 @@
 import axios from "axios";
 import { Global } from './Global';
-import { alertService } from "./alertService";
 
 export const loginService = {
   inicioService: async () => {
@@ -11,10 +10,6 @@ export const loginService = {
       );
       return data;
     } catch (error) {
-      alertService.error(
-        "Error",
-        "Ha ocurrido un error inesperado. Inténtalo de nuevo más tarde."
-      );
       return null;
     }
   }

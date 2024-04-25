@@ -3,11 +3,12 @@ import { Global } from "./Global";
 import { alertService } from "./alertService";
 
 export const emailService = {
-  createEmail: async (nombre,email) => {
+  createEmail: async ({nombre, email}) => {
     try {
-      const { data } = await axios.post(`${Global.APIURL}/email`, {
-        nombre,email,
+      const { data } = await axios.post(`${Global.APIURL}/email/email`, {
+        nombre, email
       });
+      console.log(data);
       return data;
     } catch (error) {
       alertService.error(

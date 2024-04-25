@@ -32,8 +32,8 @@
           Correo electrónico
         </div>
         <v-text-field
-        v-model="email"
           type="email"
+          v-model="email"
           density="compact"
           placeholder="Ingresa tu correo"
           prepend-inner-icon="mdi-email"
@@ -76,9 +76,13 @@ const emailRules = [
   (v) => /.+@.+\..+/.test(v) || "El correo electrónico debe ser válido",
 ];
 
+const nombre = ref("");
+const email = ref("");
+
 const registrar = async () => {
-  if (nombre && email) {
-    const response = await emailService.register({ nombre, email });
+  console.log(nombre.value, email.value);
+  if (nombre.value && email.value) {
+    const response = await emailService.createEmail({ nombre: nombre.value, email: email.value });
     if (response) {
       alertService.success("¡Gracias por suscribirte!");
     }
