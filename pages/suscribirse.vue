@@ -11,7 +11,7 @@
     >
       <v-card-title style="text-align: center">Suscríbete</v-card-title>
       <v-card-subtitle style="text-align: center">
-        Suscríbete para recibir contendio y actualizaciones
+        Suscríbete para recibir contenido y actualizaciones
       </v-card-subtitle>
       <br />
 
@@ -32,6 +32,7 @@
           Correo electrónico
         </div>
         <v-text-field
+        v-model="email"
           type="email"
           density="compact"
           placeholder="Ingresa tu correo"
@@ -55,7 +56,7 @@
               "
               color="#765D39"
               size="large"
-              @click="Registrar"
+              @click="registrar"
             >
               Suscribir
             </v-btn>
@@ -67,12 +68,22 @@
 
 <script setup>
 import { alertService } from "../services/alertService";
+import { emailService } from "~/services/emailService";
 
 const rules = [(v) => !!v || "El campo es obligatorio"];
 const emailRules = [
   (v) => !!v || "El correo electrónico es requerido",
   (v) => /.+@.+\..+/.test(v) || "El correo electrónico debe ser válido",
 ];
+
+const registrar = async () => {
+  if (nombre && email) {
+    const response = await emailService.register({ nombre, email });
+    if (response) {
+      alertService.success("¡Gracias por suscribirte!");
+    }
+  }
+};
 </script>
 
 <style>
