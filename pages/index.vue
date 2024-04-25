@@ -1,11 +1,11 @@
 <template>
   <v-container>
-    <v-banner lines="one" icon="mdi-calculator" color="#765D39" class="my-2">
+    <v-banner lines="one" icon="mdi-calculator" color="#006DB2" class="my-2">
       <v-banner-text> Esta calculadora de intervalos de confianza calcula el intervalo de confianza
         para un grupo de datos muestreado. </v-banner-text>
     </v-banner>
 
-    <v-banner lines="three" icon="mdi-sigma" color="#765D39" class="my-2">
+    <v-banner lines="three" icon="mdi-sigma" color="#006DB2" class="my-2">
       <v-banner-text style="text-align: justify;">
         En el apartado de media encuentras el formato para calcular el intervalo de confianza
         para el parámetro de media poblacional, esto ingresando los campos de media muestral,
@@ -27,14 +27,14 @@
       </v-banner-text>
     </v-banner>
 
-    <v-banner lines="three" icon="mdi-percent" color="#765D39" class="my-2">
+    <v-banner lines="three" icon="mdi-percent" color="#006DB2" class="my-2">
       <v-banner-text style="text-align: justify;">
         En el apartado de proporción encuentras el formato para calcular el intervalo de confianza
         para la proporción de una población normal, esto ingresando los campos de proporción,
         tamaño de muestra y porcentaje de confianza (90%, 95%, 99%).
       </v-banner-text>
     </v-banner>
-    <v-banner lines="three" icon="mdi-chart-scatter-plot" color="#765D39" class="my-2">
+    <v-banner lines="three" icon="mdi-chart-scatter-plot" color="#006DB2" class="my-2">
       <v-banner-text style="text-align: justify;">
         En el apartado de varianza encuentras el formato para calcular el intervalo de confianza
         para la varianza (parámetro poblacional) de una población normal, esto ingresando los

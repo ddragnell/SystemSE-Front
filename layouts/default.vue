@@ -1,8 +1,15 @@
 <template>
   <v-layout>
-    <v-app-bar style="background-color: #765D39; 
-    color:azure; text-decoration: dotted; font-size: 30px;" img>
-    <v-img src="~/public/images/LogoE.png"></v-img>
+    <v-app-bar
+      style="
+        background-color: #006db2;
+        color: azure;
+        text-decoration: dotted;
+        font-size: 30px;
+      "
+      img
+    >
+      <v-img src="~/public/images/systemSElogo.png"></v-img>
     </v-app-bar>
     <v-navigation-drawer expand-on-hover rail>
       <v-list density="compact" nav>
@@ -30,6 +37,12 @@
           value="varianza"
           to="/varianza"
         ></v-list-item>
+        <v-list-item
+          prepend-icon="mdi-account-arrow-up"
+          title="Suscribirse"
+          value="suscribirse"
+          to="/suscribirse"
+        ></v-list-item>
       </v-list>
     </v-navigation-drawer>
 
@@ -40,5 +53,5 @@
 </template>
 
 <script setup>
-const titleApp = ref("SystemSE")
+const titleApp = ref("SystemSE");
 </script>

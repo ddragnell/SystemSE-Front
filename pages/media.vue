@@ -3,27 +3,52 @@
 
   <v-container class="container-p">
     <br />
-    <v-card class="mx-auto pa-4 pb-2" elevation="20" max-width="448" rounded="lg">
-      <v-card-title style="text-align: center">Intervalo de confianza para la media</v-card-title>
+    <v-card
+      class="mx-auto pa-4 pb-2"
+      elevation="20"
+      max-width="448"
+      rounded="lg"
+    >
+      <v-card-title style="text-align: center"
+        >Intervalo de confianza para la media</v-card-title
+      >
 
       <div class="condicion">
         <div class="text-subtitle-1 text-medium-emphasis">Condición</div>
-        <v-select v-model="condicion" density="compact" placeholder="Condición"
-          prepend-inner-icon="mdi-alpha-m-box-outline" :items="condiciones" variant="underlined"></v-select>
+        <v-select
+          v-model="condicion"
+          density="compact"
+          placeholder="Condición"
+          prepend-inner-icon="mdi-alpha-m-box-outline"
+          :items="condiciones"
+          variant="underlined"
+        ></v-select>
       </div>
 
       <div class="confianza">
         <div class="text-subtitle-1 text-medium-emphasis">Confianza</div>
-        <v-select v-model="confianza" density="compact" placeholder="Porcentaje de confianza"
-          prepend-inner-icon="mdi-percent" :items="confianzas" variant="underlined"></v-select>
+        <v-select
+          v-model="confianza"
+          density="compact"
+          placeholder="Porcentaje de confianza"
+          prepend-inner-icon="mdi-percent"
+          :items="confianzas"
+          variant="underlined"
+        ></v-select>
       </div>
 
       <div class="media">
-        <div class="text-subtitle-1 text-medium-emphasis">
-          Media muestral
-        </div>
-        <v-text-field type="number" min="0" v-model="media" density="compact" placeholder="Valor de la media muestral"
-          prepend-inner-icon="mdi-sigma" variant="underlined" :rules="[rules, numeroRules].flat()"></v-text-field>
+        <div class="text-subtitle-1 text-medium-emphasis">Media muestral</div>
+        <v-text-field
+          type="number"
+          min="0"
+          v-model="media"
+          density="compact"
+          placeholder="Valor de la media muestral"
+          prepend-inner-icon="mdi-sigma"
+          variant="underlined"
+          :rules="[rules, numeroRules].flat()"
+        ></v-text-field>
       </div>
 
       <v-expand-transition>
@@ -31,9 +56,16 @@
           <div class="text-subtitle-1 text-medium-emphasis">
             Desviación muestral
           </div>
-          <v-text-field type="number" min="0" v-model="desviacionMuestral" density="compact"
-            placeholder="Valor de la desviación muestral" prepend-inner-icon="mdi-chart-scatter-plot" variant="underlined"
-            :rules="[rules, numeroRules].flat()"></v-text-field>
+          <v-text-field
+            type="number"
+            min="0"
+            v-model="desviacionMuestral"
+            density="compact"
+            placeholder="Valor de la desviación muestral"
+            prepend-inner-icon="mdi-chart-scatter-plot"
+            variant="underlined"
+            :rules="[rules, numeroRules].flat()"
+          ></v-text-field>
         </div>
       </v-expand-transition>
 
@@ -42,39 +74,84 @@
           <div class="text-subtitle-1 text-medium-emphasis">
             Desviación poblacional
           </div>
-          <v-text-field type="number" min="0" v-model="desviacionPoblacional" density="compact"
-            placeholder="Valor de la desviación poblacional" prepend-inner-icon="mdi-chart-scatter-plot"
-            variant="underlined" :rules="[rules, numeroRules].flat()"></v-text-field>
+          <v-text-field
+            type="number"
+            min="0"
+            v-model="desviacionPoblacional"
+            density="compact"
+            placeholder="Valor de la desviación poblacional"
+            prepend-inner-icon="mdi-chart-scatter-plot"
+            variant="underlined"
+            :rules="[rules, numeroRules].flat()"
+          ></v-text-field>
         </div>
       </v-expand-transition>
 
       <div class="text-subtitle-1 text-medium-emphasis">
         Tamaño de la muestra
       </div>
-      <v-text-field type="number" min="0" step="1" v-model="muestra" density="compact" placeholder="Tamaño de la muestra"
-        prepend-inner-icon="mdi-abacus" variant="underlined" :rules="[rules, numeroRules].flat()"></v-text-field>
-
-      <v-btn block class="mb-2" style="color: azure; variant: outline; background-color: #765d39" color="#765D39"
-        size="large" @click="calcular">
-        Calcular
-      </v-btn>
-
-      <v-btn block class="mb-6" style="color: azure; variant: outline; background-color: #5D6D7E" color="#5D6D7E"
-        size="large" @click="limpiar">
-        Limpiar
-      </v-btn>
+      <v-text-field
+        type="number"
+        min="0"
+        step="1"
+        v-model="muestra"
+        density="compact"
+        placeholder="Tamaño de la muestra"
+        prepend-inner-icon="mdi-abacus"
+        variant="underlined"
+        :rules="[rules, numeroRules].flat()"
+      ></v-text-field>
+      <v-container>
+        <v-row justify="center">
+          <v-col cols="auto">
+            <v-btn
+              block
+              class="mb-2"
+              style="
+                color: azure;
+                background-color: #006db2;
+                min-width: 150px;
+                max-width: 150px;
+              "
+              color="#765D39"
+              size="large"
+              @click="calcular"
+            >
+              Calcular
+            </v-btn>
+          </v-col>
+          <v-col cols="auto">
+            <v-btn
+              block
+              class="mb-6"
+              style="
+                color: azure;
+                background-color: #5d6d7e;
+                min-width: 150px;
+                max-width: 150px;
+              "
+              color="#5D6D7E"
+              size="large"
+              @click="limpiar"
+            >
+              Limpiar
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-card>
   </v-container>
 </template>
 
-
 <script setup>
-import { mediaService } from '../services/mediaService';
-import { utilsService } from '../services/utilsService';
-import { alertService } from '../services/alertService';
+import { mediaService } from "../services/mediaService";
+import { utilsService } from "../services/utilsService";
+import { alertService } from "../services/alertService";
 
 const rules = [(v) => !!v || "El campo es obligatorio"];
-const numeroRules = [(v) => utilsService.isNumber(v) || "Solo se permiten números"];
+const numeroRules = [
+  (v) => utilsService.isNumber(v) || "Solo se permiten números",
+];
 
 const loading = ref(false);
 const condicion = ref(null);
@@ -88,7 +165,7 @@ const condiciones = [
 const confianza = ref(null);
 const confianzas = [
   { title: "Seleccionar...", value: null },
-  { title: "90%", value: 0.90 },
+  { title: "90%", value: 0.9 },
   { title: "95%", value: 0.95 },
   { title: "99%", value: 0.99 },
 ];
@@ -105,7 +182,8 @@ const camposCompletos = computed(() => {
     condicion.value &&
     confianza.value &&
     media.value &&
-    ((!varianzaConocida.value && desviacionMuestral.value) || (varianzaConocida.value && desviacionPoblacional.value)) &&
+    ((!varianzaConocida.value && desviacionMuestral.value) ||
+      (varianzaConocida.value && desviacionPoblacional.value)) &&
     muestra.value
   );
 });
@@ -113,22 +191,36 @@ const camposCompletos = computed(() => {
 const calcular = async () => {
   loading.value = true;
   if (camposCompletos.value) {
-    if (!utilsService.isNumber(media.value) || !utilsService.greaterThanOrEqualTo0(media.value)) {
+    if (
+      !utilsService.isNumber(media.value) ||
+      !utilsService.greaterThanOrEqualTo0(media.value)
+    ) {
       alertService.warning(
         "Advertencia",
         "La media muestral debe ser un número mayor o igual a 0."
       );
-    } else if (varianzaConocida.value && (!utilsService.isNumber(desviacionPoblacional.value) || !utilsService.greaterThanOrEqualTo0(desviacionPoblacional.value))) {
+    } else if (
+      varianzaConocida.value &&
+      (!utilsService.isNumber(desviacionPoblacional.value) ||
+        !utilsService.greaterThanOrEqualTo0(desviacionPoblacional.value))
+    ) {
       alertService.warning(
         "Advertencia",
         "La desviación poblacional debe ser un número mayor o igual a 0."
       );
-    } else if (!varianzaConocida.value && (!utilsService.isNumber(desviacionMuestral.value) || !utilsService.greaterThanOrEqualTo0(desviacionMuestral.value))) {
+    } else if (
+      !varianzaConocida.value &&
+      (!utilsService.isNumber(desviacionMuestral.value) ||
+        !utilsService.greaterThanOrEqualTo0(desviacionMuestral.value))
+    ) {
       alertService.warning(
         "Advertencia",
         "La desviación muestral debe ser un número mayor o igual a 0."
       );
-    } else if (!utilsService.isInteger(muestra.value) || !utilsService.greaterThan0(muestra.value)) {
+    } else if (
+      !utilsService.isInteger(muestra.value) ||
+      !utilsService.greaterThan0(muestra.value)
+    ) {
       alertService.warning(
         "Advertencia",
         "El tamaño de la muestra debe ser un número entero mayor a 0."
@@ -173,7 +265,11 @@ const calcular = async () => {
       if (interval) {
         alertService.informative(
           "Resultado",
-          `Con una confianza del ${confianza.value * 100}%, se espera que la media poblacional esté entre: <br/><br/><b>${interval.L}</b> <br/><br/>y <br/><br/><b>${interval.U}</b>`
+          `Con una confianza del ${
+            confianza.value * 100
+          }%, se espera que la media poblacional esté entre: <br/><br/><b>${
+            interval.L
+          }</b> <br/><br/>y <br/><br/><b>${interval.U}</b>`
         );
       }
     }
@@ -184,7 +280,7 @@ const calcular = async () => {
     );
   }
   loading.value = false;
-}
+};
 
 const limpiar = () => {
   condicion.value = null;
@@ -193,9 +289,8 @@ const limpiar = () => {
   desviacionMuestral.value = null;
   desviacionPoblacional.value = null;
   muestra.value = null;
-}
+};
 </script>
-
 
 <style>
 .titulo {
